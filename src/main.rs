@@ -12,9 +12,20 @@ fn main() {
     else {
         println!("Nope");
     }
+    match_args(&args)
+}
 
-    if &args[1] == "m" || &args[1] == "more" {
-        println!("{:?}", offset::Local::now());
-        println!("{:?}", offset::Utc::now());
-    }
+fn match_args(args: &[String]) {
+    let arg1: String = String::from("-m");
+    let arg2: String = String::from("--more");
+    for i in args {
+        if *i == arg1 || *i == arg2 {
+            print_time(); 
+        } 
+   } 
+}
+
+fn print_time() { 
+    println!("\nLockal:\n{:?}", offset::Local::now());
+    println!("Utc:\n{:?}", offset::Utc::now());
 }
