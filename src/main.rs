@@ -1,9 +1,12 @@
-use chrono::{self, Datelike};
+use chrono::{self, Datelike, Weekday};
 
 fn main() {
-    println!("{:?}", chrono::offset::Local::now());
-
-    println!("{:?}", chrono::offset::Utc::now());
-
-    println!("{}", chrono::offset::Local::now().date().weekday());
+    let day = chrono::offset::Local::now().date().weekday();
+    let fri = Weekday::Fri;
+    if day == fri {
+       println!("Yes");
+    }
+    else {
+        println!("Nope");
+    }
 }
