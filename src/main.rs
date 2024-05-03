@@ -7,10 +7,10 @@ fn main() {
     let day = chrono::offset::Local::now().date().weekday();
     let fri = Weekday::Fri;
     if day == fri {
-       println!("Yes");
+       yup();
     }
     else {
-        println!("Nope");
+        nop();
     }
     match_args(&args)
 }
@@ -28,4 +28,26 @@ fn match_args(args: &[String]) {
 fn print_time() { 
     println!("\nLockal:\n{:?}", offset::Local::now());
     println!("Utc:\n{:?}", offset::Utc::now());
+}
+
+fn nop() {
+    print!("\n \x1b[38;5;50m
+     _______   ___     ______         _________
+    /  _   |  /  /    /  __  \\       /  ___   / 
+   /  / |  | /  /    /  /  \\  \\     /  /__/  / 
+  /  /  |  |/  /    |  |    |  |   /  ______/ 
+ /  /   |     /      \\  \\__/  /   /  / 
+/__/    |____/        \\______/   /__/  ");
+}
+
+fn yup() {
+    print!(" \x1b[38;5;200m
+___      ___   ___      ___    ________
+\\  \\    /  /  |   |    |   |  |   __   |
+ \\  \\  /  /   |   |    |   |  |  |__|  |
+  \\  \\/  /    |   |    |   |  |  ______|
+   \\    /     |    \\___/   |  |  | 
+    /  /       \\          /   |  |
+   /__/         \\________/    |__|
+   ");
 }
