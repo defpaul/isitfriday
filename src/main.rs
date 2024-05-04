@@ -16,15 +16,15 @@ fn main() {
 }
 
 fn match_args(args: &[String]) {
-    let arg1: String = String::from("-m");
-    let arg2: String = String::from("--more");
-    let arg3: String = String::from("-d");
-    let arg4: String = String::from("--day");
+    let arg_m0: String = String::from("-m");
+    let arg_m1: String = String::from("--more");
+    let arg_d0: String = String::from("-d");
+    let arg_d1: String = String::from("--day");
     for i in args {
-        if *i == arg1 || *i == arg2 {
+        if *i == arg_m0 || *i == arg_m1 {
             print_time(); 
         } 
-        else if *i == arg3 || *i == arg4{
+        else if *i == arg_d0 || *i == arg_d1{
             println!("\nDay:\n{:?}", offset::Local::now().date().weekday());
         }
    } 
